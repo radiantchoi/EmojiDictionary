@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4FDE99D026405A99005AA211 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE99CF26405A99005AA211 /* AppDelegate.swift */; };
 		4FDE99D226405A99005AA211 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE99D126405A99005AA211 /* SceneDelegate.swift */; };
-		4FDE99D426405A99005AA211 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE99D326405A99005AA211 /* ViewController.swift */; };
 		4FDE99D726405A99005AA211 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDE99D526405A99005AA211 /* Main.storyboard */; };
 		4FDE99D926405A9A005AA211 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDE99D826405A9A005AA211 /* Assets.xcassets */; };
 		4FDE99DC26405A9A005AA211 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDE99DA26405A9A005AA211 /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		4FDE99CC26405A99005AA211 /* EmojiDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDE99CF26405A99005AA211 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FDE99D126405A99005AA211 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4FDE99D326405A99005AA211 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4FDE99D626405A99005AA211 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FDE99D826405A9A005AA211 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FDE99DB26405A9A005AA211 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,13 +56,28 @@
 			children = (
 				4FDE99CF26405A99005AA211 /* AppDelegate.swift */,
 				4FDE99D126405A99005AA211 /* SceneDelegate.swift */,
-				4FDE99D326405A99005AA211 /* ViewController.swift */,
 				4FDE99D526405A99005AA211 /* Main.storyboard */,
-				4FDE99D826405A9A005AA211 /* Assets.xcassets */,
-				4FDE99DA26405A9A005AA211 /* LaunchScreen.storyboard */,
-				4FDE99DD26405A9A005AA211 /* Info.plist */,
+				4FDE99E526405B29005AA211 /* ViewControllers */,
+				4FDE99E426405B22005AA211 /* Assets */,
 			);
 			path = EmojiDictionary;
+			sourceTree = "<group>";
+		};
+		4FDE99E426405B22005AA211 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4FDE99DD26405A9A005AA211 /* Info.plist */,
+				4FDE99DA26405A9A005AA211 /* LaunchScreen.storyboard */,
+				4FDE99D826405A9A005AA211 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		4FDE99E526405B29005AA211 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +150,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FDE99D426405A99005AA211 /* ViewController.swift in Sources */,
 				4FDE99D026405A99005AA211 /* AppDelegate.swift in Sources */,
 				4FDE99D226405A99005AA211 /* SceneDelegate.swift in Sources */,
 			);
@@ -287,7 +299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = EmojiDictionary/Info.plist;
+				INFOPLIST_FILE = EmojiDictionary/Assets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +317,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = EmojiDictionary/Info.plist;
+				INFOPLIST_FILE = EmojiDictionary/Assets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
