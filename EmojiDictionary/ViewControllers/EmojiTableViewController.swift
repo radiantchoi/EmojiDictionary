@@ -24,12 +24,13 @@ class EmojiTableViewController: UITableViewController {
         Emoji(symbol: "💤", name: "Snore", description: "Three blue \'z\'s.", usage: "tired, sleepiness"),
         Emoji(symbol: "🏁", name: "Checkered Flag", description: "A black-and-white checkered flag.", usage: "completion")
     ]
+    
 }
 
 extension EmojiTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.cellLayoutMarginsFollowReadableWidth = true
+        tableView.cellLayoutMarginsFollowReadableWidth = true // 패드 같은 큰 뷰에서 합리적인 간격 유지
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -41,25 +42,32 @@ extension EmojiTableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 1 // 따로 섹션이 없으므로 1을 출력. 물론 함수 내용을 아예 비워줘도 된다.
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return emojis.count
+            return emojis.count // 첫 번째 섹션에 표시할 데이터의 갯수
         } else {
-            return 0
+            return 0 // 섹션이 하나뿐이므로
         }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
-        let emoji = emojis[indexPath.row]
-        cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)"
-        cell.detailTextLabel?.text = emoji.description
+        let emoji = emojis[indexPath.row] // section변수는 생략. 섹션이 어차피 한개니까
+        cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)" // 레이블에 표시되는 것
+        cell.detailTextLabel?.text = emoji.description // 작은 레이블에 표시되는 것
+        cell.showsReorderControl = true // 각 줄이 움직일 수 있게끔
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // 줄을 클릭했을 때 보여주는 것
+        let emoji = emojis[indexPath.row]
+        print("\(emoji.symbol) \(indexPath)") // 문자열 형태로 메세지가 가야 알아듣는 건가?
+    }
+    
     
 
     /*
@@ -82,12 +90,13 @@ extension EmojiTableViewController {
     }
     */
 
-    /*
-    // Override to support rearranging the table view.
+    
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let movedEmoji = emojis.remove(at: fromIndexPath.row)
+        emojis.insert(movedEmoji, at: to.row)
+        tableView.reloadData()
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -106,5 +115,12 @@ extension EmojiTableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+}
 
+extension EmojiTableViewController {
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+        let tableViewEditingMode = tableView.isEditing
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
 }

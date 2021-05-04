@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Emoji Dictionary-->
         <scene sceneID="P5a-21-MtT">
             <objects>
                 <tableViewController id="04C-TR-H8q" customClass="EmojiTableViewController" customModule="EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,7 +46,13 @@
                             <outlet property="delegate" destination="04C-TR-H8q" id="Hw7-ro-pkW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="arw-2w-WZq"/>
+                    <navigationItem key="navigationItem" title="Emoji Dictionary" id="arw-2w-WZq">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Ik3-Km-37E">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="04C-TR-H8q" id="3Dd-qK-qqk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOr-zl-MqS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,8 +62,8 @@
         <scene sceneID="p39-g9-IAL">
             <objects>
                 <navigationController id="m9v-Cw-qjc" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uu7-lc-znh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Uu7-lc-znh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
