@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FC5BE0626413F3A0051922B /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5BE0526413F3A0051922B /* EmojiTableViewController.swift */; };
 		4FDE99D026405A99005AA211 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE99CF26405A99005AA211 /* AppDelegate.swift */; };
 		4FDE99D226405A99005AA211 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE99D126405A99005AA211 /* SceneDelegate.swift */; };
 		4FDE99D726405A99005AA211 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDE99D526405A99005AA211 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4FC5BE0526413F3A0051922B /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
 		4FDE99CC26405A99005AA211 /* EmojiDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDE99CF26405A99005AA211 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FDE99D126405A99005AA211 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		4FDE99E526405B29005AA211 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4FC5BE0526413F3A0051922B /* EmojiTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC5BE0626413F3A0051922B /* EmojiTableViewController.swift in Sources */,
 				4FDE99E926405D6C005AA211 /* Emoji.swift in Sources */,
 				4FDE99D026405A99005AA211 /* AppDelegate.swift in Sources */,
 				4FDE99D226405A99005AA211 /* SceneDelegate.swift in Sources */,
