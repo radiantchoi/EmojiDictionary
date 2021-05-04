@@ -9,6 +9,10 @@ import UIKit
 
 class EmojiTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
 }
 
 extension EmojiTableViewCell {
@@ -21,5 +25,13 @@ extension EmojiTableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+}
+
+extension EmojiTableViewCell {
+    func update(with emoji: Emoji) {
+        symbolLabel.text = emoji.symbol
+        nameLabel.text = emoji.name
+        descriptionLabel.text = emoji.description
     }
 }
