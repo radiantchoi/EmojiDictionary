@@ -28,6 +28,7 @@ class EmojiTableViewController: UITableViewController {
 }
 
 extension EmojiTableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.cellLayoutMarginsFollowReadableWidth = true // 패드 같은 큰 뷰에서 합리적인 간격 유지
@@ -37,6 +38,10 @@ extension EmojiTableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -53,7 +58,6 @@ extension EmojiTableViewController {
         }
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
         let emoji = emojis[indexPath.row] // section변수는 생략. 섹션이 어차피 한개니까
@@ -68,7 +72,9 @@ extension EmojiTableViewController {
         print("\(emoji.symbol) \(indexPath)") // 문자열 형태로 메세지가 가야 알아듣는 건가?
     }
     
-    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none // edit 모드에서 왼쪽의 delete 기능 없애기
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -92,9 +98,9 @@ extension EmojiTableViewController {
 
     
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let movedEmoji = emojis.remove(at: fromIndexPath.row)
-        emojis.insert(movedEmoji, at: to.row)
-        tableView.reloadData()
+        let movedEmoji = emojis.remove(at: fromIndexPath.row) // 위치 변경한 이모지를 row 목록에서 지우고
+        emojis.insert(movedEmoji, at: to.row) // 새로 목록에 넣은 다음
+        tableView.reloadData() // 데이터 새로고침
     }
     
 
@@ -119,8 +125,8 @@ extension EmojiTableViewController {
 }
 
 extension EmojiTableViewController {
-    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
-        let tableViewEditingMode = tableView.isEditing
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) { // 좌상단 edit 버튼을 만들었고, 그걸 누를 때의 액션
+        let tableViewEditingMode = tableView.isEditing // 에딧 모드로 들어가자는 것
         tableView.setEditing(!tableViewEditingMode, animated: true)
     }
 }
