@@ -69,10 +69,12 @@ extension EmojiTableViewController {
         return cell
     }
     
+    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // 줄을 클릭했을 때 보여주는 것
         let emoji = emojis[indexPath.row]
         print("\(emoji.symbol) \(indexPath)") // 문자열 형태로 메세지가 가야 알아듣는 건가?
     }
+    */
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete // .none은 아무것도 표시하지 않는 것, .delete는 빨간 삭제 아이콘, .insert는 파란 추가 아이콘을 생성한다.
