@@ -111,6 +111,9 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="Usk-q1-yt3" eventType="editingChanged" id="tky-0W-gbm"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -136,6 +139,9 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="Usk-q1-yt3" eventType="editingChanged" id="EYM-WR-jLI"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -161,6 +167,9 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="Usk-q1-yt3" eventType="editingChanged" id="l5X-YX-wJv"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -186,6 +195,9 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="Usk-q1-yt3" eventType="editingChanged" id="e22-vW-Jbs"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -219,6 +231,7 @@
                     <connections>
                         <outlet property="descriptionTextField" destination="QXZ-hi-IkB" id="qkQ-4C-roL"/>
                         <outlet property="nameTextField" destination="mE6-X7-JKM" id="ekg-fp-hen"/>
+                        <outlet property="saveButton" destination="Y9F-67-1vc" id="Csc-h6-9G2"/>
                         <outlet property="symbolTextField" destination="UMU-8g-EYo" id="DHi-uO-NGb"/>
                         <outlet property="usageTextField" destination="Lnq-lT-gCJ" id="D10-Wc-GXy"/>
                     </connections>

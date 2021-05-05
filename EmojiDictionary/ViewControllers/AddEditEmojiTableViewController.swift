@@ -14,9 +14,12 @@ class AddEditEmojiTableViewController: UITableViewController {
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var usageTextField: UITextField!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     var emoji: Emoji?
     
 }
+
 
 extension AddEditEmojiTableViewController {
     
@@ -28,12 +31,39 @@ extension AddEditEmojiTableViewController {
             descriptionTextField.text = emoji.description
             usageTextField.text = emoji.usage
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        updateSaveButtonState()
     }
 
+    func updateSaveButtonState() {
+        let symbolText = symbolTextField.text ?? ""
+        let nameText = nameTextField.text ?? ""
+        let descriptionText = descriptionTextField.text ?? ""
+        let usageText = usageTextField.text ?? ""
+        saveButton.isEnabled = !symbolText.isEmpty && !nameText.isEmpty && !descriptionText.isEmpty && !usageText.isEmpty
+    }
+}
+
+
+extension AddEditEmojiTableViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "saveUnwind" else { return }
+        
+        let symbol = symbolTextField.text ?? ""
+        let name = nameTextField.text ?? ""
+        let description = descriptionTextField.text ?? ""
+        let usage = usageTextField.text ?? ""
+        emoji = Emoji(symbol: symbol, name: name, description: description, usage: usage)
+    }
+}
+
+
+extension AddEditEmojiTableViewController {
+    
+    @IBAction func textEditingChanged (_ sender: UITextField) {
+        updateSaveButtonState()
+    }
 }
