@@ -92,7 +92,7 @@
         <!--Root View Controller-->
         <scene sceneID="Z2R-ys-jVN">
             <objects>
-                <tableViewController id="Usk-q1-yt3" sceneMemberID="viewController">
+                <tableViewController id="Usk-q1-yt3" customClass="AddEditEmojiTableViewController" customModule="EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="LP6-JQ-vL8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,9 +204,27 @@
                             <outlet property="delegate" destination="Usk-q1-yt3" id="DJh-Nw-fjL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="YNN-RQ-AQW"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="YNN-RQ-AQW">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="CfY-Yd-6Ie">
+                            <connections>
+                                <segue destination="jd5-iL-cfQ" kind="unwind" unwindAction="unwindToEmojiTableViewWithSegue:" id="iCH-sk-BOE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Y9F-67-1vc">
+                            <connections>
+                                <segue destination="jd5-iL-cfQ" kind="unwind" unwindAction="unwindToEmojiTableViewWithSegue:" id="tYl-GG-bpS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="QXZ-hi-IkB" id="qkQ-4C-roL"/>
+                        <outlet property="nameTextField" destination="mE6-X7-JKM" id="ekg-fp-hen"/>
+                        <outlet property="symbolTextField" destination="UMU-8g-EYo" id="DHi-uO-NGb"/>
+                        <outlet property="usageTextField" destination="Lnq-lT-gCJ" id="D10-Wc-GXy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V5f-AR-sCT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="jd5-iL-cfQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1870" y="191"/>
         </scene>
@@ -244,7 +262,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4HT-Bl-RJs"/>
+        <segue reference="JMf-qW-Mrx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

@@ -68,13 +68,7 @@ extension EmojiTableViewController {
         
         return cell
     }
-    
-    /*
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // 줄을 클릭했을 때 보여주는 것
-        let emoji = emojis[indexPath.row]
-        print("\(emoji.symbol) \(indexPath)") // 문자열 형태로 메세지가 가야 알아듣는 건가?
-    }
-    */
+
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete // .none은 아무것도 표시하지 않는 것, .delete는 빨간 삭제 아이콘, .insert는 파란 추가 아이콘을 생성한다.
@@ -87,7 +81,11 @@ extension EmojiTableViewController {
         return true
     }
     */
+    
 
+}
+
+extension EmojiTableViewController {
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -98,8 +96,6 @@ extension EmojiTableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    
-
     
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let movedEmoji = emojis.remove(at: fromIndexPath.row) // 위치 변경한 이모지를 row 목록에서 지우고
@@ -116,15 +112,20 @@ extension EmojiTableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "EditEmoji" {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let emoji = emojis[indexPath.row]
+            let navController = segue.destination as! UINavigationController
+            let addEditEmojiTableViewController = navController.topViewController as! AddEditEmojiTableViewController
+            
+            addEditEmojiTableViewController.emoji = emoji
+        }
     }
-    */
+    
     
 }
 
@@ -132,5 +133,8 @@ extension EmojiTableViewController {
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) { // 좌상단 edit 버튼을 만들었고, 그걸 누를 때의 액션
         let tableViewEditingMode = tableView.isEditing // 에딧 모드로 들어가자는 것
         tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
+    
+    @IBAction func unwindToEmojiTableView(segue: UIStoryboardSegue) {
     }
 }
