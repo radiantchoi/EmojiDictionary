@@ -32,12 +32,8 @@ extension EmojiTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.cellLayoutMarginsFollowReadableWidth = true // 패드 같은 큰 뷰에서 합리적인 간격 유지
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,14 +64,10 @@ extension EmojiTableViewController {
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // 줄을 클릭했을 때 보여주는 것
-        let emoji = emojis[indexPath.row]
-        print("\(emoji.symbol) \(indexPath)") // 문자열 형태로 메세지가 가야 알아듣는 건가?
-    }
+
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none // edit 모드에서 왼쪽의 delete 기능 없애기
+        return .delete // .none은 아무것도 표시하지 않는 것, .delete는 빨간 삭제 아이콘, .insert는 파란 추가 아이콘을 생성한다.
     }
 
     /*
@@ -85,19 +77,21 @@ extension EmojiTableViewController {
         return true
     }
     */
+    
 
-    /*
+}
+
+extension EmojiTableViewController {
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            emojis.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
-
     
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let movedEmoji = emojis.remove(at: fromIndexPath.row) // 위치 변경한 이모지를 row 목록에서 지우고
@@ -114,15 +108,20 @@ extension EmojiTableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "EditEmoji" {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let emoji = emojis[indexPath.row]
+            let navController = segue.destination as! UINavigationController
+            let addEditEmojiTableViewController = navController.topViewController as! AddEditEmojiTableViewController
+            
+            addEditEmojiTableViewController.emoji = emoji
+        }
     }
-    */
+    
     
 }
 
@@ -130,5 +129,19 @@ extension EmojiTableViewController {
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) { // 좌상단 edit 버튼을 만들었고, 그걸 누를 때의 액션
         let tableViewEditingMode = tableView.isEditing // 에딧 모드로 들어가자는 것
         tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
+    
+    @IBAction func unwindToEmojiTableView(segue: UIStoryboardSegue) {
+        
+        guard segue.identifier == "saveUnwind", let sourceViewController = segue.source as? AddEditEmojiTableViewController, let emoji = sourceViewController.emoji else { return }
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            emojis[selectedIndexPath.row] = emoji
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        } else {
+            let newIndexPath = IndexPath(row: emojis.count, section: 0)
+            emojis.append(emoji)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
     }
 }
