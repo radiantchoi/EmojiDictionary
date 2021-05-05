@@ -35,13 +35,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PvY-nE-4Vp">
                                                     <rect key="frame" x="32" y="0.0" width="342" height="41.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd9-ke-7eh">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd9-ke-7eh">
                                                             <rect key="frame" x="0.0" y="0.0" width="342" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsd-68-Cdw">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsd-68-Cdw">
                                                             <rect key="frame" x="0.0" y="21" width="342" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <nil key="textColor"/>
@@ -219,12 +219,12 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="YNN-RQ-AQW">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="CfY-Yd-6Ie">
                             <connections>
-                                <segue destination="jd5-iL-cfQ" kind="unwind" unwindAction="unwindToEmojiTableViewWithSegue:" id="iCH-sk-BOE"/>
+                                <segue destination="jd5-iL-cfQ" kind="unwind" unwindAction="unwindToEmojiTableViewWithSegue:" id="Md9-MC-EWO"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Y9F-67-1vc">
                             <connections>
-                                <segue destination="jd5-iL-cfQ" kind="unwind" unwindAction="unwindToEmojiTableViewWithSegue:" id="tYl-GG-bpS"/>
+                                <segue destination="jd5-iL-cfQ" kind="unwind" identifier="saveUnwind" unwindAction="unwindToEmojiTableViewWithSegue:" id="8Mg-E2-ayQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
