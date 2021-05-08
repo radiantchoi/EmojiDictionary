@@ -9,7 +9,7 @@ import UIKit
 
 class EmojiTableViewController: UITableViewController {
     
-    var emojis = [Emoji]()
+    var emojis: [Emoji] = []
 
 }
 
